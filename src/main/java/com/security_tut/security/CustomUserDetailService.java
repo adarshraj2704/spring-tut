@@ -18,7 +18,14 @@ public class CustomUserDetailService implements UserDetailsService {
 								.password("{noop}user123")
 								.roles("user")
 								.build();
-		return user;
+	  if(user.getUsername().equals(username))
+	  {
+		  return user;
+	  }
+	  else
+	  {
+		  throw  new UsernameNotFoundException("username is wrong"); 
+	  }
 	}
 
 }
